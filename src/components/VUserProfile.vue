@@ -1,5 +1,9 @@
 <template>
-  <div>User Profile</div>
+  <div class="user-profile">
+    <img :src="user.avatar_url" class="user-profile__avatar">
+    <div class="user-profile__name">{{ user.name }}</div>
+    <div class="user-profile__bio">{{ user.bio }}</div>
+  </div>
 </template>
 
 <script>
@@ -11,6 +15,31 @@ export default {
       required: true,
       default: () => ({})
     }
-  },
+  }
 };
 </script>
+<style scoped>
+.user-profile {
+  border-top: solid 1px #ccc;
+  padding-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-profile__avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.user-profile__name {
+  margin-top: 14px;
+  font-size: 24px;
+  font-family: "Bungee", cursive;
+  text-transform: uppercase;
+}
+.user-profile__bio {
+  margin-top: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+</style>
